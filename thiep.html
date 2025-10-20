@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hộp quà yêu thương 🎁</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="main-card-page">
+
+  <audio id="background-music" loop>
+    <source src="piano-background-music-soft-344547 copy.mp3" type="audio/mp3">
+    Trình duyệt của bạn không hỗ trợ audio.
+  </audio>
+
+  <div id="effect-container"></div>
+
+  <div class="gift-container">
+    <img src="pngtree-a-colorful-gift-box-png-image_12751103-removebg-preview.png" alt="Hộp quà" class="gift-img" id="gift-img">
+  </div>
+
+  <div id="popup-card" class="popup-card hidden">
+    <div class="popup-content">
+      <button class="close-btn" id="close-popup-btn">&times;</button>
+
+      <h1 class="popup-greeting">
+        <span id="popup-greeting-text" data-text="Gửi đến bạn ✨"></span>
+      </h1>
+      
+      <p class="popup-message">
+        <span id="popup-message-text" data-text="Hôm nay là ngày đặc biệt để tôn vinh những người phụ nữ tuyệt vời, và bạn chắc chắn là một trong số đó. 💐  
+        Tớ chúc bạn đón một ngày 20/10 thật ngọt ngào, ấm áp, ngập tràn hoa, quà và những lời yêu thương.
+        Điều quan trọng nhất, tớ mong bạn luôn có sức khỏe dồi dào, để có thể vững vàng theo đuổi mọi ước mơ và mục tiêu trong cuộc sống
+        Chúc cho những nỗ lực và cố gắng của bạn sớm ngày đơm hoa kết quả
+        Dù cuộc sống có khó khăn thế nào, hãy nhớ rằng bạn luôn có tớ bên cạnh. Chúc bạn mãi xinh đẹp, bình an và thành công!"></span>
+      </p>
+
+      <ul class="vow-list">
+        <li><span id="vow-list-item-1" data-text="💖 Chúc bạn 20/10 vui vẻ! Mãi xinh đẹp và hạnh phúc nhé!."></span></li>
+        <li><span id="vow-list-item-2" data-text="🌷 Happy Women's Day! Chúc bạn luôn khỏe, luôn vui và thành công trong mọi việc."></span></li>
+        <li><span id="vow-list-item-3" data-text="🎶 Gửi lời chúc tốt đẹp nhất. Hãy luôn tỏa sáng và yêu đời nha!"></span></li>
+      </ul>
+
+      <p class="popup-signature">
+        <span id="popup-signature-text" data-text="-  Mạnh -"></span>
+      </p>
+      
+      <img id="hoa-chuc-mung" src="thiet-ke-chua-co-ten-5-7071.jpg" alt="Bó hoa chúc mừng" class="bouquet-image">
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

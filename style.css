@@ -1,0 +1,251 @@
+/* ========== 1. CHUNG ========== */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  color: #fff;
+}
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.gradient-background {
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fcb69f, #f6d365);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.main-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5em;
+  text-shadow: 0 0 15px rgba(255, 182, 193, 0.9);
+}
+
+/* HIỆU ỨNG CHỮ CHẠY */
+.cursor-blink {
+  border-right: 3px solid #fff;
+  animation: blink 0.75s step-end infinite;
+  display: inline-block;
+}
+.popup-greeting .cursor-blink,
+.popup-message .cursor-blink,
+.vow-list .cursor-blink,
+.popup-signature .cursor-blink {
+  border-right: 3px solid #c2185b; 
+}
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: inherit; }
+}
+/* END HIỆU ỨNG CHỮ CHẠY */
+
+.subtitle-text {
+  font-size: 1.2em;
+  color: #ffe4e1;
+  margin-bottom: 30px;
+}
+#start-btn {
+  padding: 12px 35px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  background: #fff;
+  color: #c2185b;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+#start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(194, 24, 91, 0.4);
+}
+
+/* ========== 2. TRANG HỘP QUÀ ========== */
+.main-card-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffd7e0 0%, #ffe4ec 50%, #fff0f3 100%);
+  background-size: 400% 400%;
+  animation: bgShift 12s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gift-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Hiệu ứng ánh sáng lung linh xung quanh hộp quà */
+.gift-container::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,170,190,0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+.gift-img {
+  width: 100%;
+  transition: transform 0.4s ease;
+  transform-origin: center bottom;
+  filter: drop-shadow(0 10px 20px rgba(255, 105, 180, 0.4));
+  z-index: 2;
+}
+.gift-container:hover .gift-img {
+  transform: scale(1.05);
+}
+.gift-open {
+  animation: openGift 1s ease forwards;
+}
+@keyframes openGift {
+  0% { transform: rotateX(0deg); }
+  30% { transform: rotateX(-20deg) scale(1.1); }
+  60% { transform: rotateX(15deg); }
+  100% { transform: rotateX(0deg) scale(1); }
+}
+
+/* Emoji bay ra */
+@keyframes popOut {
+  0% { transform: scale(0) translateY(0); opacity: 1; }
+  80% { transform: scale(1.2) translateY(-100px); opacity: 1; }
+  100% { transform: scale(0.8) translateY(-180px); opacity: 0; }
+}
+.pop-emoji {
+  position: absolute;
+  font-size: 30px;
+  animation: popOut 1.5s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ========== 3. POPUP ========== */
+.popup-card {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0; visibility: hidden;
+  transition: 0.3s;
+  z-index: 100;
+}
+.popup-card.show {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-content {
+  background: #fffaf0;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: 0.6s;
+  position: relative;
+}
+.popup-card.show .popup-content {
+  transform: scale(1);
+  opacity: 1;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 20px;
+  background: none; border: none;
+  font-size: 1.8em;
+  color: #c2185b;
+  cursor: pointer;
+}
+.popup-greeting {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #c2185b;
+  margin-bottom: 10px;
+}
+.popup-message {
+  font-size: 1.1em;
+  color: #444;
+  margin-bottom: 15px;
+  font-style: italic;
+  min-height: 150px;
+  text-align: justify;
+}
+.vow-list {
+  list-style: none;
+  padding: 0;
+  border-left: 3px solid #f8bbd0;
+  max-width: 85%;
+  margin: 0 auto 15px;
+  text-align: left;
+}
+.vow-list li {
+  padding: 5px 0 5px 10px;
+  color: #777;
+  min-height: 25px;
+}
+.popup-signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  color: #c2185b;
+  margin-top: 15px;
+}
+
+/* ========== 4. NỀN EMOJI RƠI ========== */
+#effect-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.effect-item {
+  position: absolute;
+  animation: fallAndFade 8s linear infinite; 
+  opacity: 0;
+}
+@keyframes fallAndFade {
+  0% { transform: translate(0, -100px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translate(var(--end-x), calc(100vh + 100px)) rotate(720deg); opacity: 0; }
+}
+
+/* ========== 5. HIỆU ỨNG HOA CUỐI CÙNG ========== */
+.bouquet-image {
+  width: 80%;
+  max-width: 200px;
+  margin: 20px auto 0;
+  display: block;
+  opacity: 0; /* Ẩn ảnh ban đầu */
+  transform: scale(0.8);
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Hiệu ứng chuyển động mượt mà */
+}
+.bouquet-image.show {
+  opacity: 1; /* Hiện ảnh */
+  transform: scale(1); /* Phóng to nhẹ khi hiện ra */
+}
